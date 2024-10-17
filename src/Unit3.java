@@ -21,11 +21,12 @@ public class Unit3 {
         System.out.println( i-- + --j + ++i);
 
         //Step2 boolean表达式
+        //注意,操作符的优先级顺序是 () ！ && ||
         boolean a = true;
         boolean b = !a;
         boolean c = a;
         boolean d = false;
-        System.out.println(!a); //求反的场景
+        System.out.println(!a); //求反的场景，注意求反的优先级是所有
         System.out.println(a && b);//画一个4 * 4矩阵，讲清楚 && 和 ||
         System.out.println(a || b);
 
@@ -41,6 +42,7 @@ public class Unit3 {
 
 
     }
+
     //if练习 1
     public void doif() {
         //注意写if的时候可以画流程图。
@@ -80,6 +82,46 @@ public class Unit3 {
         }
     }
 
+    public  void doIf3(){
+        Scanner input = new Scanner(System.in);
+        System.out.print("请输入年龄(1 - 100)：");
+        int age = input.nextInt();
+        System.out.print("请输入性别(man / woman)：");
+        String gender = input.next();
+        System.out.print("您是否是学生(true/false)：");
+        boolean isStudent = input.nextBoolean();
+
+
+        //1:年龄小于 18岁的，不论男女40%折扣
+        //2:年龄 > 18 < 60的，男士10%折扣，女士 20%折扣
+        //3:年龄 > 60 的，不论男女，30%折扣
+        //4：只要是学生身份，不论年龄性别，一律再+20%的学生折扣
+         int discount = 0
+        if ( age <= 18){
+            discount = 40;
+        }else if (age <= 60){
+            if (gender == "man"){
+                discount = 10;
+            }else{
+                discount = 20;
+            }
+        } else {
+            discount = 30;
+        }
+        if(isStudent)
+            System.out.println(discount + 20);
+        else
+            System.out.println(discount);
+    }
+    //if 作业1，看明白03-08这个排数字顺序的题目
+    //if 作业2，实现下面的函数，输入a b c三个数值，找出里面的最大值
+    public int findMax(int a, int b, int c){
+
+      return 0;//这句先放这里不报错，改
+    }
+
+
+    //这个就不用教了
     public void doIf2(){
 
         // Create a Scanner object
@@ -112,10 +154,10 @@ public class Unit3 {
         double b = input.nextDouble();
         double c = input.nextDouble();
 
-        QuadraticRoot(a,b,c);
+        //QuadraticRoot(a,b,c);
     }
 
-    //if练习
+    //if练习，上次课的作业
     //解二次方程的两个根练习，输入a，b，c，输出x1，x2
     //注意有1个根，2个根，没有根三种情况
     public void QuadraticRoot(double a, double b, double c) {
@@ -136,12 +178,9 @@ public class Unit3 {
 
     }
 
-    //留个作业，上述的用户的函数，输入一个x，求y
-
     //switch练习
     public void DoSwitch() {
         Scanner input = new Scanner(System.in);
-
 
         int month = (int)((Math.random() * 12) + 1); //练习随机生成12个月
 
@@ -149,7 +188,7 @@ public class Unit3 {
         switch (month)
         {
             case 1:
-                System.out.println("January");
+                System.out.println("January");//注意case语句是：结束，case里面不要忘了break语句跳出switch，如果不加还会往下执行
                 break;
             case 2:
                 System.out.println("February");
@@ -157,31 +196,8 @@ public class Unit3 {
             case 3:
                 System.out.println("March");
                 break;
-            case 4:
-                System.out.println("April");
-                break;
-            case 5:
-                System.out.println("May"); break;
-            case 6:
-                System.out.println("June");
-                break;
-            case 7:
-                System.out.println("July");
-                break;
-            case 8:
-                System.out.println("August");
-                break;
-            case 9:
-                System.out.println("September");
-                break;
-            case 10:
-                System.out.println("October");
-                break;
-            case 11:
-                System.out.println("November");
-                break;
-            case 12:
-                System.out.println("December");
+            default:
+                System.out.println("Other"); //最后一个不需要break
         }
 
         System.out.print("Enter a letter: ");
@@ -203,92 +219,26 @@ public class Unit3 {
             }
 
     }
-    //for循环练习，注意所有的循环语句都是和算法复杂度大O（Big O Notation）有关了
-    public void doFor(){
-        //基础的for
-        for (int i = 0; i < 10; i ++) {// 小于和小于等于都试一下 ，i++,i += 2也试一下，i= 5开始也试一下
-            System.out.println(i);
-        }
 
-        //递减的for
-        for (int i = 10; i > 0; i --) {// i++的话就进入死循环了 ，死循环要避免
-            System.out.println(i);
-        }
+    //作业1，看一下github练习题03-17，石头剪刀布的例子
+    //作业2，用switch做一个计算器
+    public void SimpleCalculator {
+            Scanner scanner = new Scanner(System.in);
 
-        //题目，做一个打印100以内的偶数，2种方法，一种是O(n)复杂度，一种是O(n/2)复杂度。
-        for (int i = 0; i <= 100; i ++) {
-            if(i % 2 == 0)
-                System.out.println(i);
-        }
-        //题目，做一个打印1-100的求和
-        int sum = 0;
-        for (int i = 0; i <= 100; i ++) {
-            sum += i;
-        }
-        System.out.println(sum);
-        //嵌套的for
-        for (int i = 0; i < 3; i++) {
-            for (int j = i; j < 5 ; j ++) // j= 0 ,可以替换成j = i
-                System.out.println("i = "+ i + " j= " + j);
-        }
+            System.out.println("请输入第一个数字：");
+            double num1 = scanner.nextDouble();
 
-        //高级题目，打印 9 * 9 乘法表，算法复杂度O(n!)
-        String str = "";
-        for (int i = 1; i <= 9; i++) {
-            for (int j = 1; j <= i ; j ++) // j= 0 ,可以替换成j = i
-                System.out.print(j + " * " + i + " = " + (i * j) + "   ");
+            System.out.print("请输入第二个数字：");
+            double num2 = scanner.nextDouble();
 
-            System.out.println("");
-            str = "";
-        }
+            System.out.print("请输入运算符 (+, -, *, /)：");
+            String operator = scanner.next();
 
-        //作业，高级题目，打印100以内质数，需要2个循环
-        for (int i = 2; i <= 100; i++) {
-            boolean isPrime = true; // 标记是否为质数
-            // 检查 i 是否能被 2 到 i-1 之间的任一数整除
-            for (int j = 2; j <= Math.sqrt(i); j++) {
-                if (i % j == 0) {
-                    isPrime = false; // 不是质数，退出内层循环
-                    break;//break跳出当前的循环语句，for和while都会跳出
-                }
-            }
-            // 如果 i 是质数，则打印出来
-            if (isPrime)
-                System.out.print(i + " ");
-        }
-    }
-    //while练习，通常是不知道具体数量的
-    public void doWhile(){
-        //基础while, 请问value 是多少？
-        int count = 1;
-        int value = 31;
-        while (value >= 10){
-            value = value - count;
-            count = count + 3;
-        }
-        System.out.println(value);
+            double result;
 
-        //获取用户输入数字，直到输入0
-        Scanner input = new Scanner(System.in);
-        System.out.print("Please input a int: ");
-        int a = input.nextInt();
+            //switch 代码写在这下面
 
-        while(a != 0){
-            System.out.print(a + " not zero.Please input a int: ");
-            a = input.nextInt();
-        }
-
-        //while倒过来，就是do while，这样就能第一次就不需要判断了。
-        do{
-            System.out.print("Please input a int: ");
-            a = input.nextInt();
-        } while(a != 0);//注意，这里有分号，dowhile有分号的，和其他循环不一样
-
-        //break和continue的两个语句
-
-
-        //把一个字符串倒过来显示
     }
 
-    //嵌套循环
+
 }
