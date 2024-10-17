@@ -10,6 +10,7 @@ public class Unit3 {
 
         //Step1 算数表达式的优先级
         //3、13 - 3 * 6 / 4 % 3  等于？12
+        //看github02-06题目，余数的算法
         //如果+-的优先级（precedence）高于乘除的优先级下面的式子等于多少？
         // 2 + 3 * 12 / 7 - 4 + 8  ? 5
 
@@ -21,7 +22,7 @@ public class Unit3 {
         System.out.println( i-- + --j + ++i);
 
         //Step2 boolean表达式
-        //注意,操作符的优先级顺序是 () ！ && ||
+        //注意,操作符的优先级顺序是 () ！^ && ||
         boolean a = true;
         boolean b = !a;
         boolean c = a;
@@ -40,6 +41,24 @@ public class Unit3 {
         a = (5 == 5) && (6 <= 7);
         a = (5 <= 5) && (10 >= 3);
 
+        //异或运算符，只有不一样的情况下才为true，一样为false
+        a = (5 <= 5) ^ (10 >= 3);
+        a = true;
+        b = false;
+        c = true;
+        d = true;
+        System.out.println(d && a ^ b ^ c);//执行顺序？异或的优先级比&&高
+
+        //判断用户名和密码输入，必须都输入正确才行。
+        boolean userNameCorrent = false;
+        boolean userPasswordCorrent = false;
+
+        if (userNameCorrent ^ userPasswordCorrent || !(userNameCorrent && userPasswordCorrent)) {
+            System.out.println("登录失败：请检查您的用户名或密码。");
+        } else {
+            System.out.println("登录成功！");
+        }
+        //上面的if可以简化吗？
 
     }
 
@@ -113,7 +132,7 @@ public class Unit3 {
         else
             System.out.println(discount);
     }
-    //if 作业1，看明白03-08这个排数字顺序的题目
+    //if 作业1，看明白github上03-08这个排数字顺序的题目
     //if 作业2，实现下面的函数，输入a b c三个数值，找出里面的最大值
     public int findMax(int a, int b, int c){
 
