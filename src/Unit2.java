@@ -6,7 +6,7 @@ public class Unit2 {
 
     //下面这个函数注意，虽然我们说对象是传递引用的，但是String不一样，因为他一旦定义了就不能变了，所以类似传值引用，得需要返回一个String才行，
     //这里返回的orgStr实际上和入参的orgStr已经不是一个对象了，和Person不一样。
-    //所有的内置的基本类型，比如Integer、Double都是不可变的对象类型，因此用起来就当和传值一样的。
+    //所有的内置的基本类型，比如Integer、Double都是不可变的对象类型，因此用起来就当和传值一样的。这叫：不可变对象（immutable）
     public static String strReplace(String orgStr,String replaceSrc,String replaceTo){
         int i = orgStr.indexOf(replaceSrc);
         if (i != -1)
@@ -147,6 +147,7 @@ public class Unit2 {
 
             //Step 13 ,unit3学完while后，写一个函数 把多个i love you 变成 i hate you
             s1 = "I Love you！ I Love you！！ I Love you！！！";
+
         }
 
 }
