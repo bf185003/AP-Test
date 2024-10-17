@@ -2,6 +2,45 @@ import java.util.Scanner;
 
 public class Unit3 {
 
+    public void doOperators(){
+        //复习一下以前的功课，
+        //1,生成一个 -50<= 到 < 50之间的数字 ，0<到<=10的数字，
+        // 如果想生成 0<到<=1之间的随机数字呢？不含0，包含1，反过来的？ if判断一下，生成0就改成1
+        //2、检查求二次方程的根的作业
+
+        //Step1 算数表达式的优先级
+        //3、13 - 3 * 6 / 4 % 3  等于？12
+        //如果+-的优先级（precedence）高于乘除的优先级下面的式子等于多少？
+        // 2 + 3 * 12 / 7 - 4 + 8  ? 5
+
+        // 注意 i ++ 和 ++ i不一样，同理--也是如此
+        int i = 10;
+        int j = 4;
+        System.out.println( i++ );
+        System.out.println( ++i );
+        System.out.println( i-- + --j + ++i);
+
+        //Step2 boolean表达式
+        boolean a = true;
+        boolean b = !a;
+        boolean c = a;
+        boolean d = false;
+        System.out.println(!a); //求反的场景
+        System.out.println(a && b);//画一个4 * 4矩阵，讲清楚 && 和 ||
+        System.out.println(a || b);
+
+        System.out.println(!a || b && c);
+        System.out.println((a && !b) || (c && d));
+        System.out.println(!(a && (b || c)) || d);
+
+
+        //下面分别是多少？ 把&&换成 ||呢？
+        a = (5 < 3) && ( 6 != 7); //注意 如果&&前面就是false了，直接返回false。同理，||操作符第一个是true，后面也不用看了。
+        a = (5 == 5) && (6 <= 7);
+        a = (5 <= 5) && (10 >= 3);
+
+
+    }
     //if练习 1
     public void doif() {
         //注意写if的时候可以画流程图。
@@ -103,6 +142,48 @@ public class Unit3 {
     public void DoSwitch() {
         Scanner input = new Scanner(System.in);
 
+
+        int month = (int)((Math.random() * 12) + 1); //练习随机生成12个月
+
+        // Display the English month name
+        switch (month)
+        {
+            case 1:
+                System.out.println("January");
+                break;
+            case 2:
+                System.out.println("February");
+                break;
+            case 3:
+                System.out.println("March");
+                break;
+            case 4:
+                System.out.println("April");
+                break;
+            case 5:
+                System.out.println("May"); break;
+            case 6:
+                System.out.println("June");
+                break;
+            case 7:
+                System.out.println("July");
+                break;
+            case 8:
+                System.out.println("August");
+                break;
+            case 9:
+                System.out.println("September");
+                break;
+            case 10:
+                System.out.println("October");
+                break;
+            case 11:
+                System.out.println("November");
+                break;
+            case 12:
+                System.out.println("December");
+        }
+
         System.out.print("Enter a letter: ");
         String s = input.nextLine();
 
@@ -117,29 +198,10 @@ public class Unit3 {
                 case "0":
                 case "o":
                 case "U":
-                case "u": System.out.println(s + " is a vowel"); break;
-                default : System.out.println(s + " is a consonant");
+                case "u": System.out.println(s + " is a vowel"); break; //可以多个case组合在一起，用if的 || 可以替代
+                default : System.out.println(s + " is a consonant");//类似if的else
             }
 
-
-        int month = (int)((Math.random() * 12) + 1);
-
-        // Display the English month name
-        switch (month)
-        {
-            case 1: System.out.println("January"); break;
-            case 2: System.out.println("February"); break;
-            case 3: System.out.println("March"); break;
-            case 4: System.out.println("April"); break;
-            case 5: System.out.println("May"); break;
-            case 6: System.out.println("June"); break;
-            case 7: System.out.println("July"); break;
-            case 8: System.out.println("August"); break;
-            case 9: System.out.println("September"); break;
-            case 10: System.out.println("October"); break;
-            case 11: System.out.println("November"); break;
-            case 12: System.out.println("December");
-        }
     }
     //for循环练习，注意所有的循环语句都是和算法复杂度大O（Big O Notation）有关了
     public void doFor(){
