@@ -96,7 +96,7 @@ public class Unit3 {
         //2:年龄 > 18 < 60的，男士10%折扣，女士 20%折扣
         //3:年龄 > 60 的，不论男女，30%折扣
         //4：只要是学生身份，不论年龄性别，一律再+20%的学生折扣
-         int discount = 0
+        int discount = 0;
         if ( age <= 18){
             discount = 40;
         }else if (age <= 60){
@@ -222,7 +222,7 @@ public class Unit3 {
 
     //作业1，看一下github练习题03-17，石头剪刀布的例子
     //作业2，用switch做一个计算器
-    public void SimpleCalculator {
+    public void SimpleCalculator(){
             Scanner scanner = new Scanner(System.in);
 
             System.out.println("请输入第一个数字：");
