@@ -6,7 +6,13 @@ public class Unit4 {
     public void doFor(){
         //基础的for
         for (int i = 0; i < 10; i ++) {// 小于和小于等于都试一下 ，i++,i += 2也试一下，i= 5开始也试一下
-            System.out.println(i);
+            System.out.println(i);      //另外一个问题，在循环里面能改i的值么？能，但是非常不推荐。
+        }
+
+        // 双参数循环也行，但是容易乱，不建议用
+        for (int i = 0 , j = 5; i < 10 && j <=20 ; i ++ ,j += 2) {
+            System.out.print("i = " + i);
+            System.out.println(" j = " + i);
         }
 
         //递减的for
@@ -19,12 +25,25 @@ public class Unit4 {
             if(i % 2 == 0)
                 System.out.println(i);
         }
-        //题目，做一个打印1-100的求和
-        int sum = 0;
+
+        //break和continue的两个语句
+        //break 跳出循环体，不再循环
+        //continue 终止当前这个loop
         for (int i = 0; i <= 100; i ++) {
-            sum += i;
+            if(i  == 10)
+                break;      //break换成continue看一下效果。
+            System.out.println(i);
+        }
+
+        //题目，做一个打印1-100的求和,和 阶乘
+        int sum = 0;
+        long factorial = 1;
+        for (int i = 1; i <= 100; i ++) {
+            sum += i;           //求和
+            factorial *= i;     //阶乘
         }
         System.out.println(sum);
+
         //嵌套的for
         for (int i = 0; i < 3; i++) {
             for (int j = i; j < 5 ; j ++) // j= 0 ,可以替换成j = i
@@ -41,14 +60,15 @@ public class Unit4 {
             str = "";
         }
 
-        //作业，高级题目，打印100以内质数，需要2个循环
+        //作业1，看一下github的05-05练习，双参数for循环
+        //作业2，高级题目，打印100以内质数，需要2个循环
         for (int i = 2; i <= 100; i++) {
             boolean isPrime = true; // 标记是否为质数
             // 检查 i 是否能被 2 到 i-1 之间的任一数整除
             for (int j = 2; j <= Math.sqrt(i); j++) {
                 if (i % j == 0) {
                     isPrime = false; // 不是质数，退出内层循环
-                    break;//break跳出当前的循环语句，for和while都会跳出
+                    break;//break跳出当前的循环语句，for、while、switch都会跳出
                 }
             }
             // 如果 i 是质数，则打印出来
@@ -56,6 +76,7 @@ public class Unit4 {
                 System.out.print(i + " ");
         }
     }
+
     //while练习，通常是不知道具体数量的
     public void doWhile(){
         //基础while, 请问value 是多少？
@@ -83,9 +104,11 @@ public class Unit4 {
             a = input.nextInt();
         } while(a != 0);//注意，这里有分号，dowhile有分号的，和其他循环不一样
 
-        //break和continue的两个语句
 
 
-        //把一个字符串倒过来显示
+
+        //作业2，用while做一个乘法表
+
+
     }
 }
