@@ -5,7 +5,7 @@ public class Person {
     private String gender;
 
     private final int MIN_AGE = 0;//注意final的属性，要么在定义的时候赋值，要么在构造函数中定义，一旦构造好了，其他函数就不能改值了。
-    private static int MAX_AGE = 150;
+    public static int MAX_AGE = 150;
 
     //constructor构造函数，和类同名，无返回值
     public Person()
