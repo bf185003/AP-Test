@@ -9,6 +9,7 @@ public class Unit3 {
         //2、检查求二次方程的根的作业
 
         //Step1 算数表达式的优先级
+        //1:()  2:* / %  3:+ -
         //3、13 - 3 * 6 / 4 % 3  等于？12
         //看github02-06题目，余数的算法
         //如果+-的优先级（precedence）高于乘除的优先级下面的式子等于多少？
@@ -17,6 +18,8 @@ public class Unit3 {
         // 注意 i ++ 和 ++ i不一样，同理--也是如此
         int i = 10;
         int j = 4;
+        int i2 = i ++;
+        int i3 = ++ j;
         System.out.println( i++ );
         System.out.println( ++i );
         System.out.println( i-- + --j + ++i);
@@ -68,12 +71,24 @@ public class Unit3 {
 
         //单行，可以不带大括号
         if(true) //这里一定是true/false的表达式，如果为true才执行里面，注意直接写boolean变量是可以的，也可以写表达式，注意浮点数不能用 == 判断
-            System.out.println("True");
-        //多行
+            System.out.println("One True");
+        //多行必须带大括号，否则就乱了。
         if(true) {
             System.out.println("True1");
             System.out.println("True2");
         }
+
+//        if(10){//注意，这种写法在java中是错误的，c/c++语言中是允许的。java是强类型的，不允许隐式转换
+//            System.out.println("10 is not true!!!");
+//        }
+
+        //下面就是一个陷阱，注意，else是和第二个if配合的
+        if(false)
+            if(true)
+                System.out.println("One One True");
+        else
+            System.out.println("One One false");
+
         //带一个else
         if(true) {
             System.out.println("true");
@@ -206,9 +221,11 @@ public class Unit3 {
         // Display the English month name
         switch (month)
         {
-            case 1:
-                System.out.println("January");//注意case语句是：结束，case里面不要忘了break语句跳出switch，如果不加还会往下执行
-                break;
+            case 1://case 可以是int、short，char，也可以用String做判断，Integer、Double内置类也可以
+                    //非常不建议用float、double、boolean等做判断
+                   //注意case语句是冒号做：结束，不是分号，
+                System.out.println("January");
+                break;  //case里面不要忘了break语句跳出switch，如果不加还会往下执行
             case 2:
                 System.out.println("February");
                 break;
@@ -219,25 +236,40 @@ public class Unit3 {
                 System.out.println("Other"); //最后一个不需要break
         }
 
-        System.out.print("Enter a letter: ");
-        String s = input.nextLine();
+        System.out.print("Enter a month（1-12）: ");
+        month = input.nextInt();
+        String season;
 
-        switch(s)
+        switch(month)
             {
-                case "A":
-                case "a":
-                case "E":
-                case "e":
-                case "I":
-                case "i":
-                case "0":
-                case "o":
-                case "U":
-                case "u": System.out.println(s + " is a vowel"); break; //可以多个case组合在一起，用if的 || 可以替代
-                default : System.out.println(s + " is a consonant");//类似if的else
+                case 12: //向下贯通的例子
+                case 1:
+                case 2:
+                    season = "冬季";
+                    break;
+                case 3:
+                case 4:
+                case 5:
+                    season = "春季";
+                    break;
+                case 6:
+                case 7:
+                case 8:
+                    season = "夏季";
+                    break;
+                case 9:
+                case 10:
+                case 11:
+                    season = "秋季";
+                    break;
+                default:
+                    season = "无效的月份编号！";
+                    break;
             }
-
+        System.out.println(month + "月，对应的季节是：" + season);
     }
+
+
 
     //作业1，看一下github练习题03-17，石头剪刀布的例子
     //作业2，用switch做一个计算器
