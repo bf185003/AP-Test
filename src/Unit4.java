@@ -5,8 +5,10 @@ public class Unit4 {
     //for循环练习，注意所有的循环语句都是和算法复杂度大O（Big O Notation）有关了
     public void doFor(){
         //基础的for
+        //打印0-9，0-10，1-10。看如何设置循环体
         for (int i = 0; i < 10; i ++) {// 小于和小于等于都试一下 ，i++,i += 2也试一下，i= 5开始也试一下
             System.out.println(i);      //另外一个问题，在循环里面能改i的值么？能，但是非常不推荐。
+                                        //注意，for和while循环经常容易范的错误是多一行或少一行。一定要算对。
         }
 
         // 双参数循环也行，但是容易乱，不建议用
@@ -16,22 +18,22 @@ public class Unit4 {
         }
 
         //递减的for
-        for (int i = 10; i > 0; i --) {// i++的话就进入死循环了 ，死循环要避免
-            System.out.println(i);
-        }
+//        for (int i = 10; i > 0; i --) {// i++的话就进入死循环了 ，死循环要避免
+//            System.out.println(i);
+//        }
 
         //题目，做一个打印100以内的偶数，2种方法，一种是O(n)复杂度，一种是O(n/2)复杂度。
-        for (int i = 0; i <= 100; i ++) {
-            if(i % 2 == 0)
-                System.out.println(i);
-        }
+//        for (int i = 0; i <= 100; i ++) {
+//            if(i % 2 == 0)
+//                System.out.println(i);
+//        }
 
         //break和continue的两个语句
-        //break 跳出循环体，不再循环
+        //break 跳出循环体，不再循环。
         //continue 终止当前这个loop
-        for (int i = 0; i <= 100; i ++) {
-            if(i  == 10)
-                break;      //break换成continue看一下效果。
+        for (int i = 0; i <= 10; i ++) {
+            if(i  == 5)
+                continue;      //break换成continue看一下效果。
             System.out.println(i);
         }
 
@@ -45,9 +47,10 @@ public class Unit4 {
         System.out.println(sum);
 
         //嵌套的for
-        for (int i = 0; i < 3; i++) {
-            for (int j = i; j < 5 ; j ++) // j= 0 ,可以替换成j = i
-                System.out.println("i = "+ i + " j= " + j);
+        for (int i = 1; i <= 10; i++) {
+            for (int j = i; j <= 10 ; j ++) // j= 0 ,可以替换成j = i
+                System.out.print(" (i"+ i + ",j" + j + ")");
+            System.out.println("");
         }
 
         //高级题目，打印 9 * 9 乘法表，算法复杂度O(n!)
@@ -62,6 +65,7 @@ public class Unit4 {
 
         //作业1，看一下github的05-05练习，双参数for循环
         //作业2，高级题目，打印100以内质数，需要2个循环
+        //复杂度 O( n*n^1/2次方) = n^3/2
         for (int i = 2; i <= 100; i++) {
             boolean isPrime = true; // 标记是否为质数
             // 检查 i 是否能被 2 到 i-1 之间的任一数整除
@@ -104,7 +108,13 @@ public class Unit4 {
             a = input.nextInt();
         } while(a != 0);//注意，这里有分号，dowhile有分号的，和其他循环不一样
 
-
+        //另外一种无穷循环，直到输入为0 退出循环
+        do {
+            System.out.print(a + " not zero.Please input a int: ");
+            a = input.nextInt();
+            if (a == 0)
+                break;
+        } while (true);
 
 
         //作业2，用while做一个乘法表
