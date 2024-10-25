@@ -6,11 +6,11 @@ public class Unit5 {
     //4：Object对象和Instance实例，都是指同一个意思
     //5:
 
-    //step1 以下变量分别：属于谁？在哪里能看到？哪里能改？值的作用域范围是哪？
+    //step1 以下attribute分别：属于谁？在哪里能看到？哪里能改？值的作用域范围是哪？
     //打开Math的类的实现，学习一下
     public int attrPublic = 0;              //属于对象，对象内外都能看，对象内外都能改。类中不能改。只是在当前对象中。
     private int attrPrivate = 1;            //属于对象，对象内能看到，对象内能改。类中不能改。只是在当前对象中。
-    public static int attrPublicStatic = 2; //属于类本身，内外和类定义都能看到，类和对象都能修改修改。全局对象和类共享一个值
+    public static int attrPublicStatic; //属于类本身，内外和类定义都能看到，类和对象都能修改修改。全局对象和类共享一个值
     private static int attr_static = 0;     //属于类本身，对象内和类能看到，只能在类内的静态函数修改。全局对象和类共享一个值
     public final int ATTR_FINAL;            //属于对象，对象内外能看到，设置完一次就不能改。只是在当前对象中。
                                             // 注意final只有2个地方能设置值，一个是定义的这里，一个是构造函数。但是如果这里定义赋值了，构造函数也无法修改。
@@ -22,7 +22,7 @@ public class Unit5 {
     //step 2 函数的构造
     //method/function 介绍 ，方法和函数都是一码事，java叫方法，其他语言叫函数
     // <access type> <return type> <identifier> <parameter list>
-    //access type : public  private static
+    //access type : public  private protected static
     //return type : void , other  有返回值的，我们通常不能当作单独语句。void必须是当作单独语句使用。
     //identifier  : 起一个好听好理解的名字
     //parameter list : 类型1 名字1， 类型2 名字2，...(可以没有参数，可以有参数)
@@ -31,7 +31,7 @@ public class Unit5 {
     public static int staticSum(int n){
         privateStaticMethod();//void的方法通常当作一条语句。这里只static方法只能调用另外的static方法
         System.out.println(isPrime(n)); //不是void的方法，通常都当作一个值来使用
-        return n + ATTR_STATIC_FINAL + (int)ATTR_STATIC_FINAL_PRIVATE;
+        return n + ATTR_STATIC_FINAL + (int)ATTR_STATIC_FINAL_PRIVATE;      //static的method，只能使用static的attribute。非static的method，静态和非静态的attribute都能用。
     }
 
     //private私有的、static静态的方法
@@ -49,13 +49,13 @@ public class Unit5 {
         System.out.println("我是method 1 的调用：参数a = " + a + " result = " + result); //这里会打印多少？
         boolean prime = Unit5.isPrime(a);//非静态的函数，可以调用静态的函数。也能改静态变量。但是反过来不行。静态函数不能调用非静态的函数和变量。
         return result;
-    };
+    }
 
     private int method2(int b){
         int result = method3(b + 10);//这个result的作用域只在当前方法，其他人看不到。
         System.out.println("我是method 2 的调用：参数b = " + b + " result = " + result); //这里会打印多少？
         return result;
-    };
+    }
 
     private int method3(int c){
         int result = c + 3;
@@ -64,11 +64,11 @@ public class Unit5 {
     }
 
     //方法返回什么的返回值,在其他计算中就当什么值用，以下都是什么返回值，能在哪些函数中用。
-     public int abc(){ return 10;};
-     public double def(){ return 10.0;};
-     public boolean ghi(){ return true;};
-     public String jkl(){ return "abcd";};
-     //public void mno(){ return 10};
+     public int abc(){ return 10;}
+     public double def(){ return 10.0;}
+     public boolean ghi(){ return true;}
+     public String jkl(){ return "abcd";}
+     //public void mno(){ return 10}
 
      public void test(){
          double a = 2 / abc(); //是否正确？？？a = 多少？ 0.0
@@ -100,22 +100,48 @@ public class Unit5 {
     // 不同参数可以同名,参数的：个数、类型、顺序，这三个任何一个不一样都是Overload，查看Math.abs,String.indexof有几种重载方法
     //在main中分别调用这两个方法，sum(5,5) sum(5,5.0)如何区分出来调用的是谁呢？
     public int sum(int n1){ return  n1 + 1;}
-    public int sum(int n1,int n2){ return  n1 + n2;}
-    public double sum(double n1,int n2){ return n1 + n2;}
-    public double sum(int n1,double n2){return n1 + n2;}
+    public int sum(int n1,int n2){ return  n1 + n2;}        //和上一个的参数个数不一样
+    public double sum(double n1,int n2){ return n1 + n2;}   //和上一个的参数类型不一样，
+    public double sum(int n2,double n1){return n1 + n2;}    //和上面的参数顺序不一样，一般来说这种情况很少见
 
 
     //step5 构造函数
     // 如果构造函数没写缺省的，直接写了带参数的，那么对象必须带参数创建。
-    //注意构造函数的3个特点：1和类名一样的名字 2没有返回值，也不需要写void 3是在new的时候调用，否则是null
-    public Unit5(){
-        this.ATTR_FINAL = attr_static;
+    //注意构造函数的3个特点：
+    // 1和类名一样的名字
+    // 2没有返回值，也不需要写void
+    // 3是在new的时候调用，否则是null。自定义的类只有看到new才会创建，其他内置的String类或Integer类，可以通过赋值创建。例如String a = ”abc“
+    //构造函数通常都是对对象的属性进行初始化。
+    //构造函数能不能写成private的？ 可以，单例模式就是。
+    //构造函数能不能写成static的？不行。
+    public Unit5(){             //如果写了构造函数，那就和默认的构造函数调用方法一样，也是new Unit5()，哪怕是无参的也得写上()
+        this(0);        //构造器还可以调用其他的构造器，是这种写法。注意！！！，构造器调用跟其他构造器，必须写在第一行中，否则报错。
+        //static int abcd = 2; 构造函数不可以declare static的attribute
+        System.out.println("我是无参数的constructor！");
+        attrPublicStatic = 2;         //但可以修改static attribute
     }
+    //Overload一个constructor
     public Unit5(int attr_final){
+        System.out.println("我是有参数的constructor！！！");
         this.ATTR_FINAL = attr_final;//final可以在构造函数种改一次
+
     }
 
-    //注意！！如果你写了返回值或void，这就是一个普通方法，不是构造器Constructor了。普通方法可以和类重名。
+    //注意！构造函数可以没有，没有的话，Java会自动生成一个无参的构造函数，并在
+    //但是一旦你写了构造函数，就不会再调用默认的构造函数。
+
+    //注意！,代码也能写在静态的代码块中，类加载的时候调用，这个和constructor不一样
+    static{
+        System.out.println("我是静态的代码块，哈哈哈");
+    }
+
+    //注意！！所有的对象new是否是只能在外面呢？不是，也可以在静态方法new对象
+    //这个方法可以在main中这么调用: Unit5 unit = Unit5.createUnit5(3); 也能new一个对象。这种创建方式叫静态工厂方法static factory method
+    public static Unit5 createUnit5(int attr_final){
+        return new Unit5(attr_final);
+    }
+
+    //注意！！如果你写了返回值或void，这就是一个普通方法，不是构造器Constructor了。普通方法可以和类重名!!!
     public int Unit5(){
         return 0;
     }
