@@ -41,8 +41,13 @@ public class Unit2 {
 
         System.out.println(i2.compareTo(i1));
 
-        //Step4 注意！ Integer的equals和String的不一样，值相等就认为是相等的
+        //Step4 注意！ Integer的equals和Person类的不一样，Integer值相等就认为是相等的，Person哪怕值相等也不是相等的。
+        //String等内置类也是同样特性
         System.out.println(i2.equals(i1));
+
+        //注意，Integer类不能用 == 进行值判断，128以下是对的，因为他们共用了一个内存对象，但是大于128，Java就给它建立了一个新对象
+        //大于128这个时候 == 就判断不对了，判断两个Integer大小只能用equals。
+        System.out.println(i2 == i1);
 
         //Step5,同样，Integer类，也重写了tostring，可以直接打印对象
         System.out.println(i2);
@@ -60,6 +65,8 @@ public class Unit2 {
         System.out.println(value);
 
         //注意float和double的值的 == 比较会有问题，可以用大于小于，不要用等于判断
+        //为什么下面x 会等于 0.50000000000001呢？因为0.1在计算机中是用两个分数相加模拟的。
+        //但是 x = 1.0 - 0.25 - 0.5则没有问题，因为0.25和0.5都能用分数完全用二进制表示
         double x = 1.0 - 0.1 - 0.1 - 0.1 - 0.1 - 0.1;
         System.out.println(x == 0.5);
         System.out.println(x);
@@ -108,12 +115,12 @@ public class Unit2 {
             //System.out.println(s4);
 
             //Step10 String的equals和Integer一样的，只要值一样，就是true
-            System.out.println(s4.equals(s3));
+            System.out.println(s4.equals(s2));
 
             //Step11 String compareTo,顺序从小到大 0-9 A-Z a-z，
             //小是负数，大是正数，0是相等 ，打开wps，看一下全部的字符集
             //不是比String长度，就是比出现的字母顺序。但是如果前面字符一样，后面长度不一样，就是长短了。
-            //AB和ABC，被包含的小。（两个数值的unicode代码值相减）
+            //AB和ABC，被包含的小。
             s1 = "012313";
             s2 = "A";
             System.out.println(s1.compareTo(s2));
