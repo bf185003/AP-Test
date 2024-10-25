@@ -105,16 +105,25 @@ public class Unit2 {
             String s3 = "hello";
             String s4 = s1;
             s1 = s1 + " world!";
-            System.out.println(s4);
+            //System.out.println(s4);
 
             //Step10 String的equals和Integer一样的，只要值一样，就是true
             System.out.println(s4.equals(s3));
 
-            //Step11 String compareTo,顺序从小到大 0-9 A-Z a-z， 小是负数，大是正数，0是相等 ，打开wps，看一下全部的字符集
-            //不是比String长度，就是比出现的字母顺序
-            //AB和ABC，被包含的小
+            //Step11 String compareTo,顺序从小到大 0-9 A-Z a-z，
+            //小是负数，大是正数，0是相等 ，打开wps，看一下全部的字符集
+            //不是比String长度，就是比出现的字母顺序。但是如果前面字符一样，后面长度不一样，就是长短了。
+            //AB和ABC，被包含的小。（两个数值的unicode代码值相减）
             s1 = "012313";
             s2 = "A";
+            System.out.println(s1.compareTo(s2));
+
+            //注意！！！，compareTo有一个问题!!!!
+            //如果两个字符串不一样，返回出现不一样的字符的unicode差值，
+            //如果两个字符串前面一样，但是长度不一样，则返回两个字符串的长度差值，不是unicode差值了。切记切记。
+            //例如下面返回：-8
+            s1 = "Hello";
+            s2 =  "Hello World!!";
             System.out.println(s1.compareTo(s2));
 
             //Step 11 indexOf, 从左开始，从0开始
