@@ -13,7 +13,7 @@ public class Unit3 {
         //3、13 - 3 * 6 / 4 % 3  等于？12
         //看github02-06题目，余数的算法
         //如果+-的优先级（precedence）高于乘除的优先级下面的式子等于多少？
-        // 2 + 3 * 12 / 7 - 4 + 8  ? 5
+        // 2 + 3 * 12 / 7 - 4 + 8 / 5
 
         // 注意 i ++ 和 ++ i不一样，同理--也是如此
         int i = 10;
@@ -26,6 +26,10 @@ public class Unit3 {
 
         //Step2 boolean表达式
         //注意,操作符的优先级顺序是 () ！^ && ||
+        //小技巧，计算时候可以把true认为是1，false认为是0  && 认为是乘法，|| 认为是加法
+        // true && false 相当于 1 * 0 ，则等于false ; true && true 则等于1 * 1 ，等于true
+        // true || false 相当于 1 + 0 ，则等于ture ; true || true 则等于1 + 1 ，等于true
+
         boolean a = true;
         boolean b = !a;
         boolean c = a;
@@ -78,7 +82,7 @@ public class Unit3 {
             System.out.println("True2");
         }
 
-//        if(10){//注意，这种写法在java中是错误的，c/c++语言中是允许的。java是强类型的，不允许隐式转换
+//        if(10){//注意，这种写法在java中是错误的，c/c++语言中是允许的。java是强类型的，不允许隐式转换。if条件中只能放boolean值
 //            System.out.println("10 is not true!!!");
 //        }
 
