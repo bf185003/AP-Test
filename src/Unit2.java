@@ -102,6 +102,46 @@ public class Unit2 {
         //生成 10<= int1 <= 100
         int1 = 10 + (int) (Math.random() * 91);
 
+
+    }
+
+    //补充Math的一些函数介绍，增加round、floor、ceil的函数的介绍
+    public static void doMath2(){
+        //round是四舍五入的函数
+        long a;
+        double b;
+        a = Math.round(1.0);    //1
+        a = Math.round(1.4);    //1
+        a = Math.round(1.5);    //2
+        a = Math.round(1.6);    //2
+
+        a = Math.round(-1.0);    //-1
+        a = Math.round(-1.4);    //-1
+        a = Math.round(-1.5);    //-1   注意这里！！！，其实round函数是 + 0.5后，再向下取整，这个加完后是-1.0
+        a = Math.round(-1.6);    //-2
+
+        //floor是向下取整函数，注意负数的方向也是往下
+        //另外注意，floor返回的double类型
+        b = Math.floor(1.0);    // == 1.0
+        b = Math.floor(1.4);    // == 1.0
+        b = Math.floor(1.5);    // == 1.0
+        b = Math.floor(1.6);    // == 1.0
+        b = Math.floor(-1.0);   // == -1.0
+        b = Math.floor(-1.4);   // == -2.0
+        b = Math.floor(-1.5);   // == -2.0
+        b = Math.floor(-1.6);   // == -2.0
+
+        //ceil是向上取整，也要注意负数的方向
+        //返回的是double值
+        b = Math.ceil(1.0);     // == 1.0
+        b = Math.ceil(1.4);     // == 2.0
+        b = Math.ceil(1.5);     // == 2.0
+        b = Math.ceil(1.6);     // == 2.0
+        b = Math.ceil(-1.0);    // == -1.0
+        b = Math.ceil(-1.4);    // == -1.0
+        b = Math.ceil(-1.5);    // == -1.0
+        b = Math.ceil(-1.6);    // == -1.0
+
     }
 
 
@@ -164,6 +204,27 @@ public class Unit2 {
             //Step 13 ,unit3学完while后，写一个函数 把多个i love you 变成 i hate you
             s1 = "I Love you！ I Love you！！ I Love you！！！";
 
+        }
+
+    //tolowercase 转换大写和小写函数
+    //charAt函数
+    //单个字符的大小写转换操作
+    public void doString2(){
+            String str = "ABCDabcd";
+            char c;
+            //string的方法，toLowerCase，toUpperCase 所有字符串都转换成小写或大写
+            System.out.println(str.toLowerCase());
+            System.out.println(str.toUpperCase());
+
+            //charAt函数，获取指定位置的字符，注意index是从0开始
+            //注意是返回char类型
+            c = str.charAt(0);//取到A，转成小写a
+
+            //Character.toLowerCase是进行单个字符大小写转换的函数
+            System.out.println(Character.toLowerCase(c));
+
+            c = str.charAt(4);//取到a，转成大写A
+            System.out.println(Character.toUpperCase(c));
         }
 
 }
