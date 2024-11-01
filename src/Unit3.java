@@ -16,9 +16,10 @@ public class Unit3 {
         // 2 + 3 * 12 / 7 - 4 + 8 / 5
 
         // 注意 i ++ 和 ++ i不一样，同理--也是如此
+
         int i = 10;
         int j = 4;
-        int i2 = i ++;
+        int i2 = i ++; // 注意，这里是实际上进行了两次赋值操作，i2被赋值，和i本身的加1
         int i3 = ++ j;
         System.out.println( i++ );
         System.out.println( ++i );

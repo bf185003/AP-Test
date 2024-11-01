@@ -6,8 +6,11 @@ public class Unit4 {
     public void doFor(){
         //基础的for
         //打印0-9，0-10，1-10。看如何设置循环体
-        for (int i = 0; i < 10; i ++) {// 小于和小于等于都试一下 ，i++,i += 2也试一下，i= 5开始也试一下
-            System.out.println(i);      //另外一个问题，在循环里面能改i的值么？能，但是非常不推荐。
+        int sum1 = 0;
+        for (int i = 0; i <= 10; i += 2 ) {// 小于和小于等于都试一下 ，++ i , i += 2也试一下，i= 5开始也试一下
+                                        // 这个例子是循环10次，i从0到9，如果改成i <= 10 ，就循环11次，从0-11
+                                        //创建一个从[100-200]的循环，i += 5循环次数是多少，创建[456,123)的反循环。
+            System.out.println("i = " + i + " Sum =" + (sum1 += i));      //另外一个问题，在循环里面能改i的值么？能，但是非常不推荐。
                                         //注意，for和while循环经常容易范的错误是多一行或少一行。一定要算对。
         }
 
@@ -17,6 +20,10 @@ public class Unit4 {
             System.out.println(" j = " + i);
         }
 
+        //下面的例子是有效的，是一个死循环，永远出不来
+//        for( ; ;){
+//            System.out.println("ok");
+//        }
         //递减的for
 //        for (int i = 10; i > 0; i --) {// i++的话就进入死循环了 ，死循环要避免
 //            System.out.println(i);
@@ -33,7 +40,7 @@ public class Unit4 {
         //continue 终止当前这个loop
         for (int i = 0; i <= 10; i ++) {
             if(i  == 5)
-                continue;      //break换成continue看一下效果。
+                break;      //break换成continue看一下效果。
             System.out.println(i);
         }
 
@@ -44,10 +51,10 @@ public class Unit4 {
             sum += i;           //求和
             factorial *= i;     //阶乘
         }
-        System.out.println(sum);
+        System.out.println("sum = " + sum + " and factorial = " + factorial);
 
         //嵌套的for
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 10; i ++) {
             for (int j = i; j <= 10 ; j ++) // j= 0 ,可以替换成j = i
                 System.out.print(" (i"+ i + ",j" + j + ")");
             System.out.println("");
@@ -113,10 +120,21 @@ public class Unit4 {
             System.out.print(a + " not zero.Please input a int: ");
             a = input.nextInt();
             if (a == 0)
-                break;
+                break;  // break和continue的用法和for一样，一个是退出全部循环，一个是结束当前循环，返回条件处
+                        //唯一需要注意的是，do while循环的continue是跳过所有语句到下面。
         } while (true);
 
 
+        //break和continue的练习，下面是一个continue的死循环陷阱
+        value = 0;
+        System.out.print(" Please input a int: ");
+        value = input.nextInt();
+        do{
+            if(value == 5)
+                break;      //break换成continue看一下效果。
+            System.out.println(value);
+            value ++ ; // 这种写法有问题，continue的话无法执行，就进入死循环了，注意循环变量的++一定要写在continue前面。
+        }while(value < 10);
         //作业2，用while做一个乘法表
 
 

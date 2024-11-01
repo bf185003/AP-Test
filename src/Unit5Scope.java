@@ -1,6 +1,7 @@
-//练习变量的作用域，最简单的记法，就是在所在的花括号内有效。
+//练习变量的作用域，最简单的记法，就是变量在定义所在的花括号内有效。
+//Scope of Variables
 public class Unit5Scope {
-    private static int class_i = 10;     //这个变量是所有类都能操作的
+    private static int class_i = 30;     //这个变量是所有类都能操作的
     private int instance_i = 10;     //这个变量是当前对象的所有method都可以操作的
 
     public void Method1(int para_i){ //方法参数中的变量，仅在这个方法内有效。
@@ -24,7 +25,8 @@ public class Unit5Scope {
     }
 
     public void Method2(){
-        System.out.println(instance_i); //类变量能用
+        System.out.println(class_i); //类的静态变量能用
+        System.out.println(instance_i); //对象\实例的变量能用
         //System.out.println(para_i);  其他方法的局部变量不能用
         //System.out.println(method_i); 同上
 

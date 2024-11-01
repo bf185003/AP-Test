@@ -1,10 +1,8 @@
 public class Unit5 {
-
     //1: 一个Class类，通常由3部分组成：属性Property、构造器constructor、方法Method
     //2: 属性Property、attribute，都是指同一个意思
     //3: Method方法和Function函数，都是指同一个意思
     //4：Object对象和Instance实例，都是指同一个意思
-    //5:
 
     //step1 以下attribute分别：属于谁？在哪里能看到？哪里能改？值的作用域范围是哪？
     //打开Math的类的实现，学习一下
@@ -13,7 +11,8 @@ public class Unit5 {
     public static int attrPublicStatic; //属于类本身，内外和类定义都能看到，类和对象都能修改修改。全局对象和类共享一个值
     private static int attr_static = 0;     //属于类本身，对象内和类能看到，只能在类内的静态函数修改。全局对象和类共享一个值
     public final int ATTR_FINAL;            //属于对象，对象内外能看到，设置完一次就不能改。只是在当前对象中。
-                                            // 注意final只有2个地方能设置值，一个是定义的这里，一个是构造函数。但是如果这里定义赋值了，构造函数也无法修改。
+                                            // 注意final只有3个地方能设置值，一个是定义的这里，一个是构造函数。但是如果这里定义赋值了，构造函数也无法修改。
+                                            //还有一个地方是初始化块中赋值。但是不能在其他方法中赋值。
     public static final int ATTR_STATIC_FINAL = 100;//对象内外、类能看到。通常在类定义设置完就不改了。全局对象和类共享一个值。
     private static final double ATTR_STATIC_FINAL_PRIVATE = 2.01;
 
@@ -25,7 +24,7 @@ public class Unit5 {
     //access type : public  private protected static
     //return type : void , other  有返回值的，我们通常不能当作单独语句。void必须是当作单独语句使用。
     //identifier  : 起一个好听好理解的名字
-    //parameter list : 类型1 名字1， 类型2 名字2，...(可以没有参数，可以有参数)
+    //parameter list : 类型1 名字1， 类型2 名字2，...(可以没有参数，可以有参数)，这个地方叫形参
     //return value : void的不需要写，写也没事。
     //static的method,只能用自己的参数或static的参数，也能调用其他static方法
     public static int staticSum(int n){
@@ -64,17 +63,22 @@ public class Unit5 {
     }
 
     //方法返回什么的返回值,在其他计算中就当什么值用，以下都是什么返回值，能在哪些函数中用。
+    //一般来说，有返回值的函数，都是当作赋值给其他变量用，很少不用返回值的情况。当然不用也可以。
      public int abc(){ return 10;}
      public double def(){ return 10.0;}
      public boolean ghi(){ return true;}
      public String jkl(){ return "abcd";}
-     //public void mno(){ return 10}
+     public void mno(){;}
+     //public void pqr(){ return 10}    //错误例子，void不能写返回值
 
      public void test(){
          double a = 2 / abc(); //是否正确？？？a = 多少？ 0.0
          double b = 2 / def(); //是否正确？？？b = 多少？ 0.2
-//         double c = 10 / ghi(); //是否正确？？？
-//         double d = 10 / jkl(); //是否正确？？？
+         if(ghi() && (5>=3))    //是否正确？？？
+             System.out.println("ok");
+         //double c = 10 / ghi(); //是否正确？？？
+         //double d = 10 / jkl(); //是否正确？？？
+         //System.out.println(mno()); 是否正确？？
 
          if(ghi())//是否正确？
              System.out.println("TRUE");
@@ -130,9 +134,10 @@ public class Unit5 {
     //注意！构造函数可以没有，没有的话，Java会自动生成一个无参的构造函数，并在
     //但是一旦你写了构造函数，就不会再调用默认的构造函数。
 
-    //注意！,代码也能写在静态的代码块中，类加载的时候调用，这个和constructor不一样
+    //注意！,代码也能写在静态的代码块中，Class加载的时候调用，这个和constructor不一样。
+    //Class什么时候加载呢？通常在第一个实例创建的时候。
     static{
-        System.out.println("我是静态的代码块，哈哈哈");
+        System.out.println("我是静态的代码块，哈哈哈。我只在类加载的时候跑一次哦");
     }
 
     //注意！！所有的对象new是否是只能在外面呢？不是，也可以在静态方法new对象
