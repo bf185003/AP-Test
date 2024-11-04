@@ -75,16 +75,26 @@ public class Unit6 {
             searchList[i] = 1 + (int)(Math.random() * 1000); //给一个1-1000之间的随机数
         }
         Arrays.sort(searchList);//给他排序
-        int index = arrayBinarySearch(searchList , 34); //例如随机查找34
+        System.out.println("binarySearching......");
+        int index = binarySearch(searchList , 34); //例如随机查找34
         if (index == -1)
-            System.out.println("not found!");
+            System.out.println("binarySearch not found!");
         else
-            System.out.println("founded,At index:" + index);
+            System.out.println("binarySearch founded,At index:" + index);
+    }
+
+    //线性查找函数，和下面折半查找对比一下时间。用10万条记录查找
+    public int linearSearch(int[] array, int key) {
+        for (int i = 0; i < array.length; i++) {
+            if (key == array[i])
+                return i;
+        }
+        return -1;
     }
 
     //做一个数组折半查找函数
     //折半查找必须对已经排好序的数组进行查找，返回找到的数据的index，-1是没找到
-    public int arrayBinarySearch(int[] list, int key){
+    public int binarySearch(int[] list, int key){
         int low = 0;
         int high = list.length - 1;
         int middle = 0;
