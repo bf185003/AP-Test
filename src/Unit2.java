@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 import static java.lang.String.format;
 
+//学习String方法、Math的方法
 public class Unit2 {
 
     //下面这个函数注意，虽然我们说对象是传递引用的，但是String不一样，因为他一旦定义了就不能变了，所以类似传值引用，得需要返回一个String才行，

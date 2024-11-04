@@ -1,3 +1,5 @@
+
+//学习类的属性attribute和方法method
 public class Unit5 {
     //1: 一个Class类，通常由3部分组成：属性Property、构造器constructor、方法Method
     //2: 属性Property、attribute，都是指同一个意思

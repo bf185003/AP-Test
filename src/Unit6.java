@@ -1,5 +1,6 @@
 import java.util.Arrays;
 
+//学习Array
 public class Unit6 {
     private String[] suits = {"Spades", "Hearts", "Diamonds", "Clubs"};
     private String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9",
