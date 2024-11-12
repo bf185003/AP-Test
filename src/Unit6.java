@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import sampleClass.*;
 
 //学习Array
 public class Unit6 {
@@ -8,14 +9,14 @@ public class Unit6 {
     private int[] searchList = new int[1000]; //1000个int数组，用来做折半查找用
 
     public void doArray(){
-        //arrary是长度固定的、同类型的组合
+        //arrary是长度固定的、同类型的组合，可以是原生类型、也可以是class。（理论上如果里面放object类，也就能放各种class了，但是ap不这么考）
         int[] intArray1 = new int[10];  //创建一个空的10个元素的array，索引从0开始，0-9。长度一旦确定，就不能改了。
                                         //注意前后的中括号不要遗漏。
                                         //array的缺省值，int，double类型的为0，char为\0，boolean类型是false，String是Null
         double[] doubleArray = {1.2,2.4,3.6,4.1};   //直接赋值也是可以的，注意是用中括号括起来，注意这种赋值的不需要写new
         char[]  charArray = {'D','a','l','l','a','s'};
-        String[] session = {"Spring","Summer","Fall","Winter"}; //同一类的array也可以创建
-        int[] intArray2 ;               //创建一个数组定义，不设置大小和赋值也行
+        String[] session = {"Spring","Summer","Fall","Winter"}; //同一Class的array也可以创建
+        int[] intArray2 ;               //创建一个数组定义，不设置大小和赋值也行，Java的declare和new可以分开。
         intArray2 = new int[20];    //也可以先定义数组类型，后分配大小，Array一旦分配完大小，就不能再改了。
 
         System.out.println(intArray1.length);   //获取Array长度，这个length是不加括号！！是一个variable
@@ -74,7 +75,7 @@ public class Unit6 {
         for(int i = 0; i < searchList.length; i++) {//遍历打印一个array
             searchList[i] = 1 + (int)(Math.random() * 1000); //给一个1-1000之间的随机数
         }
-        Arrays.sort(searchList);//给他排序
+        Arrays.sort(searchList);//给他排序，这里是内置好的排序算法，后面第10课，我们自己再写排序算法
         System.out.println("binarySearching......");
         int index = binarySearch(searchList , 34); //例如随机查找34
         if (index == -1)
