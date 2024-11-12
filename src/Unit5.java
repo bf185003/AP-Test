@@ -55,6 +55,7 @@ public class Unit5 {
     private int method2(int b){
         int result = method3(b + 10);//这个result的作用域只在当前方法，其他人看不到。
         System.out.println("我是method 2 的调用：参数b = " + b + " result = " + result); //这里会打印多少？
+
         return result;
     }
 
@@ -124,6 +125,8 @@ public class Unit5 {
         this(0);        //构造器还可以调用其他的构造器，是这种写法。注意！！！，构造器调用跟其他构造器，必须写在第一行中，否则报错。
         //static int abcd = 2; 构造函数不可以declare static的attribute
         System.out.println("我是无参数的constructor！");
+        Unit5.attr_static = 1;
+        System.out.println(Unit5.attr_static);
         attrPublicStatic = 2;         //但可以修改static attribute
     }
     //Overload一个constructor

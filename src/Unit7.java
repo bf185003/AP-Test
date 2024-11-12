@@ -112,7 +112,7 @@ public class Unit7 {
 
     //数据的遍历方法练习,查找和删除重复元素
     public void doArrayList2(){
-        printArrayList((ArrayList<String>) sList3);
+        printArrayListString((ArrayList<String>) sList3);
         sList3 = (ArrayList<String>) sList3.stream()
                      .distinct()
                      .collect(Collectors.toList());
@@ -146,7 +146,7 @@ public class Unit7 {
         // 选择排序
         for (int i = 0; i < intlist.size() - 1; i++) {
             int minIndex = i;
-            for (int j = i + 1; j < intlist.size(); j++) {
+            for (j = i + 1; j < intlist.size(); j++) {
                 if (intlist.get(j) < intlist.get(minIndex)) {
                     minIndex = j;
                 }
@@ -160,7 +160,7 @@ public class Unit7 {
 
         // 冒泡排序
         for (int i = 0; i < intlist.size() - 1; i++) {
-            for (int j = 0; j < intlist.size() - 1 - i; j++) {
+            for (j = 0; j < intlist.size() - 1 - i; j++) {
                 if (intlist.get(j) > intlist.get(j + 1)) {
                     // 交换
                     temp = intlist.get(j);
