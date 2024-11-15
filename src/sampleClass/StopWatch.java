@@ -1,5 +1,4 @@
 package sampleClass;
-
 import java.text.SimpleDateFormat;
 
 //做一个秒表，用来做排序计时
@@ -23,12 +22,12 @@ public class StopWatch {
     }
 
     public void printElapsedTime(){
-        String startTimeString = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(startTime);
-        String endTimeString = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(endTime);
+        String startTimeString = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(startTime);
+        String endTimeString = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS").format(endTime);
 
         System.out.println("Stop Watch start at : " + startTimeString);
         System.out.println("Stop Watch end at : " + endTimeString);
-        System.out.println("Elapsed time is : " + getElapsedTime() / 1000 + " seconds.");
+        System.out.println("Elapsed time is : " + (double)getElapsedTime() / 1000 + " seconds.");
 
     }
 
