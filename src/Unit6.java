@@ -1,7 +1,10 @@
 import java.util.Arrays;
 import sampleClass.*;
 
-//学习Array
+//接下来3课，学习Array、ArrayList、2维Array
+//arrary是长度固定的、同类型的组合，可以是原生类型、也可以是class。（理论上如果里面放object类，也就能放各种class了，但是ap不这么考）
+//打开Excel，练习 10个元素的数字数组、字符数组、字符串数组。设定长度后，就不能改了，可以为控。
+
 public class Unit6 {
     private String[] suits = {"Spades", "Hearts", "Diamonds", "Clubs"};
     private String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9",
@@ -9,7 +12,6 @@ public class Unit6 {
     private int[] searchList = new int[1000]; //1000个int数组，用来做折半查找用
 
     public void doArray(){
-        //arrary是长度固定的、同类型的组合，可以是原生类型、也可以是class。（理论上如果里面放object类，也就能放各种class了，但是ap不这么考）
         int[] intArray1 = new int[10];  //创建一个空的10个元素的array，索引从0开始，0-9。长度一旦确定，就不能改了。
                                         //注意前后的中括号不要遗漏。
                                         //array的缺省值，int，double类型的为0，char为\0，boolean类型是false，String是Null
@@ -17,9 +19,9 @@ public class Unit6 {
         char[]  charArray = {'D','a','l','l','a','s'};
         String[] session = {"Spring","Summer","Fall","Winter"}; //同一Class的array也可以创建
         int[] intArray2 ;               //创建一个数组定义，不设置大小和赋值也行，Java的declare和new可以分开。
-        intArray2 = new int[20];    //也可以先定义数组类型，后分配大小，Array一旦分配完大小，就不能再改了。
+        intArray2 = new int[20];        //也可以先定义数组类型，后分配大小，Array一旦分配完大小，就不能再改了。
 
-        System.out.println(intArray1.length);   //获取Array长度，这个length是不加括号！！是一个variable
+        System.out.println(intArray1.length);   //获取Array长度，这个length是不加括号！！是一个variable。和字符串求长度不一样。
         System.out.println(session[0]);         //通过中括号，可以获取array中的某个值。
         session[2] = "Autumn";                  //也可以给他赋值，和修改值
                                                 //注意index也是从0开始，和String一样的
