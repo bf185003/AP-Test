@@ -20,6 +20,9 @@ public class Unit6 {
         String[] session = {"Spring","Summer","Fall","Winter"}; //同一Class的array也可以创建
         int[] intArray2 ;               //创建一个数组定义，不设置大小和赋值也行，Java的declare和new可以分开。
         intArray2 = new int[20];        //也可以先定义数组类型，后分配大小，Array一旦分配完大小，就不能再改了。
+        //下面这种赋值方式是错误的，只能在初始化的时候这么赋值。
+        // suits = {"Spades", "Hearts", "Diamonds", "Clubs"};
+
 
         System.out.println(intArray1.length);   //获取Array长度，这个length是不加括号！！是一个variable。和字符串求长度不一样。
         System.out.println(session[0]);         //通过中括号，可以获取array中的某个值。
@@ -86,6 +89,8 @@ public class Unit6 {
             System.out.println("binarySearch founded,At index:" + index);
     }
 
+    //这里说明，未排序的array通常只能线性查找，复杂度是O(n)，排序后的即可折半查找，复杂度是O(log n))。因此排序是查找的前一步，后面会再学习排序方法，这里先用系统自带的排序方法。
+    //注意在数学领域，log n是以10为底，但在计算机领域，log n是以2为底。
     //线性查找函数，和下面折半查找对比一下时间。用10万条记录查找
     public int linearSearch(int[] array, int key) {
         for (int i = 0; i < array.length; i++) {
@@ -102,7 +107,7 @@ public class Unit6 {
         int high = list.length - 1;
         int middle = 0;
 
-        while(high >= low){
+        while(high >= low){//这里提问一下，如果high > low ，不写=会怎样
             middle = (low + high) / 2;
             if (key < list[middle])
                 high = middle - 1;  //

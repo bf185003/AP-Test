@@ -171,6 +171,5 @@ public class Unit7 {
         }
         printArrayListInt(intlist);
 
-
     }
 }
