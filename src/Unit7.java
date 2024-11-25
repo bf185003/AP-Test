@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 //学习数组列表 ArrayList
 public class Unit7 {
     //Arraylist可以添加和删除、插入。arrayList的长度是可以改变的。
+    //Array能放原生类型，但是ArrayList只能放如对象
     //另外，ArrayList在编译时候做了类型检查，比较安全，对象的数组，如 Object[]是运行时检查类型，容易运行时报错。
     //缺点是：1 只能用来存对象（Object/Instance），不能用基础类型（可以用Integer、String）。2：速度比array慢
     //使用ArrayList，必须在Class前面引入util包，可以用import java.util.*;，也可以写import java.util.ArrayList
@@ -85,6 +86,7 @@ public class Unit7 {
         //Step 11 判断数组列表是否是空的
         boolean isEmpty = sList.isEmpty();
         if(isEmpty)
+
             System.out.println("sList is Empty!");
 
     }
