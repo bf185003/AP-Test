@@ -64,4 +64,9 @@ public class Person {
     {
         weight -= x;
     }
+
+    //这个方法可以被子类重写和访问，但是外部不能。当前包的其他类也能访问。
+    protected void method1(){
+
+    }
 }

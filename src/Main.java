@@ -4,14 +4,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Unit6 unit = new Unit6();
+     //   Unit6 unit = new Unit6();
      //   unit.do2dArray3();
-        double totalIncome = 0.0;
-        for (int i = 1; i < 11; i++) {
-            totalIncome += investmentIncome(500,500,0);
-            System.out.println("今年是第 "+ i + " 年，投资总收入是："+ totalIncome);
-            System.out.println();
-        }
+//        double totalIncome = 0.0;
+//        for (int i = 1; i < 11; i++) {
+//            totalIncome += investmentIncome(500,500,0);
+//            System.out.println("今年是第 "+ i + " 年，投资总收入是："+ totalIncome);
+//            System.out.println();
+//        }
+
+        Person p = new Person();
+        //p.method1(); 不能调用protected的方法
+
 
 //        StopWatch sw = new StopWatch();
 //        sw.start();
