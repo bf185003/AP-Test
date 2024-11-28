@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 //课程类
 public class Course {
+    private String courseName;
     private ArrayList<Student> studentList = new ArrayList<Student>(0); //选中当前课的学生列表
     private Faculty faculty;//当前课程的老师，只能有一个。
     private final int MAX_STUDENT = 50;

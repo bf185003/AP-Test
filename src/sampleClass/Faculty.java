@@ -2,8 +2,8 @@ package sampleClass;
 
 import java.util.ArrayList;
 
-//讲师类
-public class Faculty {
+//讲师类，也是从Person继承
+public class Faculty extends Person{
     private ArrayList<Course> courseList = new ArrayList<Course>(0);
     private final int MAX_COURSE = 3;
 
