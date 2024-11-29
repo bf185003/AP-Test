@@ -10,4 +10,8 @@ public class Dolphin extends Animal{
     public void move() {
         System.out.println("游泳！");
     }
+
+    public void show(){
+        System.out.println("水上表演！");
+    }
 }

@@ -10,4 +10,8 @@ public class Dove extends Animal{
     public void move() {
         System.out.println("飞！");
     }
+
+    public void sendMail(){
+        System.out.println("送信！");
+    }
 }
