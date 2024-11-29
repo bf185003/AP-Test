@@ -1,11 +1,14 @@
 import sampleClass.*;
 
+import java.util.ArrayList;
+import java.util.Objects;
+
 public class Main {
 
     public static void main(String[] args) {
 
-     //   Unit6 unit = new Unit6();
-     //   unit.do2dArray3();
+//        Unit8 unit = new Unit8();
+//        unit.do2dArray3();
 //        double totalIncome = 0.0;
 //        for (int i = 1; i < 11; i++) {
 //            totalIncome += investmentIncome(500,500,0);
@@ -13,7 +16,36 @@ public class Main {
 //            System.out.println();
 //        }
 
-        Person p = new Person();
+        Dolphin d = new Dolphin();
+        Animal a = new Dog();
+
+        System.out.println(d.sound());
+        System.out.println(a.sound()); //调用的是dog的sound
+        //a.hunting();这样是错的，只能调用Animal基础的方法。
+
+        ArrayList<Animal> zoo = new ArrayList<Animal>(0);
+        zoo.add(new Dog());
+        zoo.add(new Dolphin());
+        zoo.add(new Animal());
+        zoo.add(new Dove());
+        zoo.add(new Dog());
+        zoo.add(new Dove());
+
+        for (int i = 0; i < zoo.size(); i++) {
+            System.out.println(zoo.get(i));//直接调用toString的方法，toString是Object类的基本方法，所有的类都是从挂这里派生的。
+        }
+
+        for (int i = 0; i < zoo.size(); i++) {
+            if(zoo.get(i) instanceof Dog)//找到只有狗才print。instanceof可以用来判断是啥类。注意Java关键字都是小写的，不是骆驼命名法
+                System.out.println(((Dog) zoo.get(i)).hunting()); //把zoo中列表的对象先转换成dog，再调用dog的方法hunting
+                                                                  //一定要注意必须先转换完dog，再调用hunting，因此前面有个小括号。
+
+            if(zoo.get(i) instanceof Dove)
+                System.out.println(((Dove) zoo.get(i)).sendMail());
+
+        }
+
+        //Person p = new Person;
         //p.method1(); 不能调用protected的方法
 
 

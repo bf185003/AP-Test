@@ -2,16 +2,21 @@ package sampleClass;
 
 public class Dolphin extends Animal{
     @Override
-    public void sound() {
-        System.out.println("叽叽！");
+    public String sound() {
+        return "叽叽！";
     }
 
     @Override
-    public void move() {
-        System.out.println("游泳！");
+    public String move() {
+        return "游泳！";
     }
 
-    public void show(){
-        System.out.println("水上表演！");
+    public String show(){
+        return "水上表演！";
+    }
+
+    @Override
+    public String toString() {
+        return sound() + move();
     }
 }

@@ -2,16 +2,21 @@ package sampleClass;
 
 public class Dove extends Animal{
     @Override
-    public void sound() {
-        System.out.println("咕咕！");
+    public String sound() {
+        return "咕咕！";
     }
 
     @Override
-    public void move() {
-        System.out.println("飞！");
+    public String move() {
+        return "飞！";
     }
 
-    public void sendMail(){
-        System.out.println("送信！");
+    public String sendMail(){
+        return "送信！";
+    }
+
+    @Override
+    public String toString() {
+        return sound() + move();
     }
 }
