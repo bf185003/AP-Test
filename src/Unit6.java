@@ -1,5 +1,5 @@
 import java.util.Arrays;
-import Human.*;
+import School.*;
 
 //接下来3课，学习Array、ArrayList、2维Array
 //arrary是长度固定的、同类型的组合，可以是原生类型、也可以是class。（理论上如果里面放object类，也就能放各种class了，但是ap不这么考）
