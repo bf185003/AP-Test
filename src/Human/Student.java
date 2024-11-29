@@ -1,7 +1,5 @@
 package Human;
 
-import Animal.Course;
-
 import java.util.ArrayList;
 
 //学生类，练习Association，类的关联关系

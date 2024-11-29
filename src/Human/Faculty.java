@@ -1,7 +1,5 @@
 package Human;
 
-import Animal.Course;
-
 import java.util.ArrayList;
 
 //讲师类，也是从Person继承

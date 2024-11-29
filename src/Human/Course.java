@@ -1,7 +1,4 @@
-package Animal;
-
-import Human.Faculty;
-import Human.Student;
+package Human;
 
 import java.util.ArrayList;
 
