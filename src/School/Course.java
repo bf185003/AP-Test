@@ -1,4 +1,4 @@
-package Human;
+package School;
 
 import java.util.ArrayList;
 
