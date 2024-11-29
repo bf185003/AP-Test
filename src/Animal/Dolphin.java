@@ -1,4 +1,4 @@
-package sampleClass;
+package Animal;
 
 public class Dolphin extends Animal{
     @Override

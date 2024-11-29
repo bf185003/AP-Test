@@ -1,7 +1,6 @@
-import sampleClass.*;
+import Animal.Animal;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Main {
 
@@ -40,6 +39,7 @@ public class Main {
 
         for (int i = 0; i < zoo.size(); i++) {
             if(zoo.get(i) instanceof Dog)//找到只有狗才print。instanceof可以用来判断是啥类。注意Java关键字都是小写的，不是骆驼命名法
+                                         //但是@这种标注有是大写开头的。
                 System.out.println(((Dog) zoo.get(i)).hunting()); //把zoo中列表的对象先转换成dog，再调用dog的方法hunting
                                                                   //一定要注意必须先转换完dog，再调用hunting，因此前面有个小括号。
 

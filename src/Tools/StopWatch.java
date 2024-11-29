@@ -1,4 +1,4 @@
-package sampleClass;
+package Tools;
 import java.text.SimpleDateFormat;
 
 //做一个秒表，用来做排序计时

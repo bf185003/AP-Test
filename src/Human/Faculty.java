@@ -1,4 +1,6 @@
-package sampleClass;
+package Human;
+
+import Animal.Course;
 
 import java.util.ArrayList;
 

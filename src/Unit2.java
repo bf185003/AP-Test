@@ -1,5 +1,5 @@
 import java.util.Scanner;
-import sampleClass.*;
+import Human.*;
 import static java.lang.String.format;
 
 //学习String方法、Math的方法

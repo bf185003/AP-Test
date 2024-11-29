@@ -1,4 +1,4 @@
-package sampleClass;
+package Animal;
 
 public class Chihuahua extends Dog{
 }

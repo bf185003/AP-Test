@@ -1,4 +1,4 @@
-import sampleClass.*;
+import Human.*;
 //Java和类的基本知识
 public class Unit1 {
     public static void inc(int x,int y) //传值引用和传参数引用的对比

@@ -1,4 +1,4 @@
-package sampleClass;
+package Human;
 
 public class Person {
     private String name;
