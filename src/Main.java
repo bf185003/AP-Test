@@ -18,6 +18,9 @@ public class Main {
 
         Dolphin d = new Dolphin();
         Animal a = new Dog();
+        Animal c = new Animal();
+        //Dog e = (Dog) c; 这句话报错的，super类不能转换成子类，反之，子类永远可以转换成父类。下面这句话是对的
+        Dog f = (Dog) a;//注意这里，a和f共用一个对象，
 
         System.out.println(d.sound());
         System.out.println(a.sound()); //调用的是dog的sound
@@ -44,6 +47,33 @@ public class Main {
                 System.out.println(((Dove) zoo.get(i)).sendMail());
 
         }
+
+        Animal x = new Chihuahua(); //演示instanceof可以表达对象的类及其父类，但是不能是兄弟类
+        if(x instanceof Animal)
+            System.out.println("x is Animal");
+        else
+            System.out.println("x is not Animal");
+
+        if(x instanceof Dove)
+            System.out.println("x is Dove");
+        else
+            System.out.println("x is not dove");
+
+        if(x instanceof Dog)
+            System.out.println("x is Dog");
+        else
+            System.out.println("x is not dog");
+
+        if(x instanceof Chihuahua)
+            System.out.println("x is Chihuahua");
+        else
+            System.out.println("x is not Chihuahua");
+
+        if(x instanceof BorderCollie)
+            System.out.println("x is BorderCollie");
+        else
+            System.out.println("x is not BorderCollie");
+
 
         //Person p = new Person;
         //p.method1(); 不能调用protected的方法
