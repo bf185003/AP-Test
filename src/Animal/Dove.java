@@ -1,18 +1,23 @@
 package Animal;
 
 public class Dove extends Animal{
+
+    public Dove(String n){
+        super(n);
+    }
+
     @Override
     public String sound() {
-        return "咕咕！";
+        return "咕咕";
     }
 
     @Override
     public String move() {
-        return "飞！";
+        return "飞";
     }
 
     public String sendMail(){
-        return "送信！";
+        return "送信";
     }
 
     @Override
