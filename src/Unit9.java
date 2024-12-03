@@ -1,11 +1,10 @@
 import Animal.*;
-
 import java.util.ArrayList;
 
-
+//面向对象，继承，多态的测试。
 public class Unit9 {
-    Dolphin d = new Dolphin();
-    Animal a = new Dog();
+    Dolphin d = new Dolphin("Mike");
+    Animal a = new Dog("花花");
     Animal c = new Animal();
 
     public void doAnimal(){
@@ -16,16 +15,16 @@ public class Unit9 {
         System.out.println(d.sound());
         System.out.println(a.sound()); //调用的是dog的sound
         d.show();//d是dolphin，可以直接调用个性化的show方法。
-        ((Dog) a).hunting(); //如果想调用a的dog的方法，必须前面强制转换为dog才行。
+        ((Dog) a).hunting(); //如果想调用a的dog的个性方法，必须把animal前面强制转换为dog才行。
         //a.hunting();这样是错的，只能调用Animal基础的方法。
 
         ArrayList<Animal> zoo = new ArrayList<Animal>(0);
-        zoo.add(new Dog());
-        zoo.add(new Dolphin());
+        zoo.add(new Dog("旺财"));
+        zoo.add(new Dolphin("小杜"));
         zoo.add(new Animal());
-        zoo.add(new Dove());
-        zoo.add(new Dog());
-        zoo.add(new Dove());
+        zoo.add(new Dove("小白"));
+        zoo.add(new Dog("大黄"));
+        zoo.add(new Dove("点子"));
 
         for (int i = 0; i < zoo.size(); i++) {
             System.out.println(zoo.get(i));//直接调用toString的方法，toString是Object类的基本方法，所有的类都是从挂这里派生的。
@@ -33,12 +32,12 @@ public class Unit9 {
 
         for (int i = 0; i < zoo.size(); i++) {
             if(zoo.get(i) instanceof Dog)//找到只有狗才print。instanceof可以用来判断是啥类。注意Java关键字都是小写的，不是骆驼命名法
-                //但是@这种标注有是大写开头的。
-                System.out.println(((Dog) zoo.get(i)).hunting()); //把zoo中列表的对象先转换成dog，再调用dog的方法hunting
-            //一定要注意必须先转换完dog，再调用hunting，因此前面有个小括号。
+                                         //但是@这种标注有是大写开头的。
+                System.out.println(zoo.get(i).name + ((Dog) zoo.get(i)).hunting()); //把zoo中列表的对象先转换成dog，再调用dog的方法hunting
+                                                                  //一定要注意必须先转换完dog，再调用hunting，因此前面有个小括号。
 
-            if(zoo.get(i) instanceof Dove)
-                System.out.println(((Dove) zoo.get(i)).sendMail());
+            if(zoo.get(i) instanceof Dolphin)
+                System.out.println(zoo.get(i).name + ((Dolphin) zoo.get(i)).show());
 
         }
 
