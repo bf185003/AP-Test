@@ -22,6 +22,6 @@ public class Dove extends Animal{
 
     @Override
     public String toString() {
-        return sound() + move();
+        return "我叫" + name + "，我会" + sound() +"，会"+ move() + "，会" + sendMail();
     }
 }
