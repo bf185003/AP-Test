@@ -18,7 +18,7 @@ public class Unit11 {
         }
     }
 
-    //选择排序  书的第7.8章节
+    //选择排序  书的第7.11章节
     //从未排序的部分中，把最小值找出来，循环直到末尾
     //速度不快,复杂度O(n^2)，容易理解。
     private void selectionSort(int[] list){
@@ -28,11 +28,11 @@ public class Unit11 {
         for (int i = 0; i < list.length - 1; i++) { //第一层循环全部
             minIndex = i;
             for (int j = i + 1; j < list.length; j++) {  //第二层从前往后逐个筛选
-                if (list[j] < list[minIndex]) { //不断找，直到在未排序的部分中，找到最小值
+                if (list[j] < list[minIndex]) { //每次把比当前小的index取出来，直到在未排序的部分中，找到最小值
                     minIndex = j;
                 }
             }
-            temp = list[minIndex]; //把找到的最小值和当前位置互换一下
+            temp = list[minIndex]; //把找到的最小值和当前位置互换一下，这三句是两个值互换。
             list[minIndex] = list[i];
             list[i] = temp;
         }
@@ -56,6 +56,28 @@ public class Unit11 {
             }
 
             list[j + 1] = currentElement; //都比完了，空出一个位置，放到这里，注意这里的j比上面的j的最后一次要小1的。
+
+        }
+    }
+
+    //冒泡排序
+    //每一轮从头把最大值互相交换，直至推到最后，每一轮少推一位。
+    //相当于每次把最大值像气泡一样逐步冒到顶部。因此得名。
+    private void bubbleSort(int[] list){
+        boolean swapped = true;
+        int temp;
+
+        for (int i = 1; i < list.length  && swapped; i++) { //外层循环，注意，这里也是从1开始
+            swapped = false;                                // 如果这一轮从来没有交换过，swapped = false，则证明list已经排好序，不需要再循环了。
+
+            for (int j = 0; j < list.length - i ; j++) {    //内层循环，注意这里每次循环少最后一位。
+                if (list[j] > list[j + 1]) { //只要前后两个值大小相反，就互换
+                    temp = list[j];         //下面3句是互换
+                    list[j] = list[j + 1];
+                    list[j + 1] = temp;
+                    swapped = true;     //true表示本轮交换过，证明list还没排好序
+                }
+            }
 
         }
     }

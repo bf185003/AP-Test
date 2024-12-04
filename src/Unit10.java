@@ -1,6 +1,9 @@
 import java.util.Arrays;
 
-//recursive递归和排序
+//recursive递归
+//递归的优点，代码比较简洁，有的时候用循环不好实现。
+//缺点，慢，消耗内存。
+//递归只会出现在选择题中，不会出现在大题中。
 public class Unit10 {
     private int[] searchList = new int[1000]; //1000个int数组，用来做递归折半查找用
 
@@ -49,7 +52,7 @@ public class Unit10 {
     }
 
 
-    //Fibonacci斐波那契数，双递归，比较特殊。
+    //Fibonacci斐波那契数，双递归，比较特殊。这种递归是比较耗时的，因为调用了两次，好多数都会计算多遍
     //繁殖兔子例子
     //Fibonacci值： 0 1 1 2 3 5 8 13 21 34
     //索引：        0 1 2 3 4 5 6  7  8  9
