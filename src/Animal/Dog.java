@@ -12,13 +12,19 @@ package Animal;
 public class Dog extends Animal{
 
     public Dog(){
-        super();
+        super();//注意！！，子类缺省不会调用父类的构造函数，必须用super(...)的方式调用
+                //调用父类的构造函数，必须在constructor的第一句话！！
+                //注意super关键字和this关键字区别开，this()是调用当前对象的其他构造器的。
     }
 
     public Dog(String n){
         super(n);
     }
 
+    //以下是Override（重写/覆盖）了父类的方法，重写父类的方法，必须名字、返回值、参数都得一模一样才行。
+    //注意@Override，前面加了@的这种叫Java注解，这种注解不是必须的，可以不写。但是为了可靠起见，加上它之后，编译器会帮你检查是否是Override
+    //注意不能override父类的private方法，只能override public和protected方法
+    //描述一下overload和override的区别
     @Override
     public String sound() {//Override的返回类型和参数列表一定不能修改。但是overload的参数是必须要修改的，返回类型不可以修改小范围。
                              //就是说，不能把父类的public改成private，可以把父类的protected改成public
@@ -37,6 +43,13 @@ public class Dog extends Animal{
 
     @Override
     public String toString() {
-        return "我叫" + name + "，我会" + sound() +"，会"+ move() + "，会" + hunting();
+        return super.toString() + "，会" + hunting();
     }
+
+    //可以override父类的protected的方法，可以设置为public或protected，不能减少范围为private。
+    @Override
+    public void method1() {
+        super.method1();
+    }
+
 }

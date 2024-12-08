@@ -22,6 +22,6 @@ public class Dolphin extends Animal{
 
     @Override
     public String toString() {
-        return "我叫" + name + "，我会" + sound() +"，会"+ move() + "，会" + show();
+        return super.toString() + "，会" + show();
     }
 }
