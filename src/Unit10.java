@@ -21,6 +21,17 @@ public class Unit10 {
         System.out.println(recursiveBinarySearch(searchList, 456, 0, searchList.length - 1)); //查找456
     }
 
+    //俄罗斯套娃，做一个递归的测试
+    public void matryoshka(int n){
+        if (n == 0){ // 最后的判断条件一定放在递归方法的开头。
+            System.out.println("套娃没了");
+            return;
+        }
+
+        matryoshka(n - 1);
+        System.out.println("我是第" + n + " 层套娃"); //这个语句和上面的语句颠倒一下试一试
+    }
+
     //recursive method 递归函数1：阶乘
     //递归2个注意事项
     //1:是函数自己调用自己才叫递归。
@@ -31,7 +42,9 @@ public class Unit10 {
         if (n == 0) {
             return 1; //注意这里就是退出机制，就是递归的最后一个值，要考虑到。
         } else {
-            return n * factorial(n - 1);
+            long i = n * factorial(n - 1); //按理说应该放在return语句，放在这里可以看一下具体的值
+            System.out.println(i); //具体计算的时候可以去掉。
+            return i;
         }
     }
 
