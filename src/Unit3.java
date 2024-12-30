@@ -71,6 +71,40 @@ public class Unit3 {
 
     }
 
+    public void doBoolean(){
+        //恒等率
+        //x && true == x
+        // x || false == x
+
+        //零律
+        //x && false == false
+        //x || true == true
+
+        //幂等律
+        //x && x == x
+        //x || x == x
+
+        //双重否定律
+        //!!x == x
+
+        //交换律
+        //x && y == y && x
+        //x || y == y || x
+
+        //结合律
+        //(x && y) && z == x && (y && z)
+        //(x || y) || z == x || (y || z)
+
+        //分配律
+        //x && (y || z) == (x && y) || (x && z)
+        //x || (y && z) == (x || y) && (x || z)
+
+        //德摩根定律 (De Morgan's Laws)
+        //!(x && y) == !x || !y
+        //!(x || y) == !x && !y
+
+    }
+
     //if练习 1
     public void doif() {
         //注意写if的时候可以画流程图。
