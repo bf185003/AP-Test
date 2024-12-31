@@ -4,6 +4,7 @@ public class Person {
     private String name;
     private int age;
     private int weight;
+    private int height;
     private String gender;
 
     private final int MIN_AGE = 0;//注意final的属性，要么在定义的时候赋值，要么在构造函数中定义，一旦构造好了，其他函数就不能改值了。
