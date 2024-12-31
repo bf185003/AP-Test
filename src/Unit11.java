@@ -4,14 +4,19 @@ import java.util.Arrays;
 //练习排序，选择排序Selection，插入排序Insertion，冒泡排序Bubble，归并排序Merge，快速排序Quick。五个排序都要背下来
 //注意，除了快速排序之外的其他排序都是两层循环，归并排序和快速排序用递归作为第二层循环。
 //插入、冒泡、选择的时间复杂度是一样的，最坏情况复杂度是O(n^2)
-//归并和快速会快一些,复杂度O（n log n）
-//分两次课教，第一节课做一个时钟，教前两个排序，第二课教后三个排序
+//归并和快速会快一些,复杂度O（n log n），快速排序就不讲了，AP不考。
+//分两次课教，第一节课做一个时钟，教前两个排序，第二课教后两个排序
 public class Unit11 {
+    int[] searchlist0 = {2,9,5,4,8,1,6,7}; //用来测试排序用的
     int[] searchList1 = new int[10]; //先从10个开始学习，然后用10w，20w，30w，50w，100w个排序，看一下时间
     int[] searchList2 = new int[10]; //复制一个数组，用来对比排序速度用
 
     public void doSearch(){
+        selectionSort(searchlist0); //可以先用测试数组用来学习各种排序算法
+
+        //下面用来比速度
         initList();
+        searchList2 = searchList1.clone(); //直接复制第一个数组，用来给第二个排序用
     }
 
     //把查询列表灌随机数
@@ -19,6 +24,14 @@ public class Unit11 {
         for (int i = 0; i < searchList1.length; i++) {
              searchList1[i] = ((int)(Math.random() * 11)); //给一个1-10之间的随机数，后面如果加大数组，再加范围
         }
+    }
+
+    //把样例的Array打印出来
+    private void printArray(){
+        for(int i:searchlist0) {
+           System.out.print(" " + i);
+        }
+        System.out.println();
     }
 
     //选择排序  书的第7.11章节
@@ -38,6 +51,7 @@ public class Unit11 {
             temp = list[minIndex]; //把找到的最小值和当前位置互换一下，这三句是两个值互换。
             list[minIndex] = list[i];
             list[i] = temp;
+            printArray();
         }
     }
 
@@ -59,7 +73,7 @@ public class Unit11 {
             }
 
             list[j + 1] = currentElement; //都比完了，空出一个位置，放到这里，注意这里的j比上面的j的最后一次要小1的。
-
+            printArray();
         }
     }
 
@@ -81,7 +95,7 @@ public class Unit11 {
                     swapped = true;     //true表示本轮交换过，证明list还没排好序
                 }
             }
-
+            printArray();
         }
     }
 
