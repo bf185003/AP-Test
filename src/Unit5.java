@@ -116,9 +116,17 @@ public class Unit5 {
     //在main中分别调用这两个方法，sum(5,5) sum(5,5.0)如何区分出来调用的是谁呢？
     public int sum(int n1){ return  n1 + 1;}
     public int sum(int n1,int n2){ return  n1 + n2;}        //和上一个的参数个数不一样
-    public double sum(double n1,int n2){ return n1 + n2;}   //和上一个的参数类型不一样，
+    public double sum(double n1,int n2){   //和上一个的参数类型不一样
+        //注意这里是传入的参数不一样的
+        return n1 + n2;
+    }
     public double sum(int n2,double n1){return n1 + n2;}    //和上面的参数顺序不一样，一般来说这种情况很少见
 
+    public void testMethod(String name, Double weight){ //这里测试如果double传入int会怎样？
+        //Unit5 unit = new Unit5();    //如果调用本method
+        //unit.testMethod("fuwei",20); //注意这样写报错，Java并不能隐形转换int和double的类型，它认为20是int
+        //unit.testMethod("fuwei",20.0); //改成这样写是对的。
+    }
 
     //step5 构造函数
     // 如果构造函数没写缺省的，直接写了带参数的，那么对象必须带参数创建。
