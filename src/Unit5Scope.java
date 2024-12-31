@@ -31,4 +31,15 @@ public class Unit5Scope {
         //System.out.println(method_i); 同上
 
     }
+
+    private void privateMethod(){
+        System.out.println("I am a private Method");
+    }
+
+    //！！重要
+    public int otherInstanceprivate(Unit5Scope theOther){
+        theOther.privateMethod();
+        return theOther.instance_i; //注意这个要点，肯定要考，就是这里引用的theOther是另外一个实例，但是
+                                    //在当前的类方法中，是可以用.的方法调用同一个类的实例的私有变量，也能调用私有的函数。
+    }
 }

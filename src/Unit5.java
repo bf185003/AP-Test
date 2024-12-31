@@ -10,6 +10,7 @@ public class Unit5 {
     //打开Math的类的实现，学习一下
     public int attrPublic = 0;              //属于对象，对象内外都能看，对象内外都能改。类中不能改。只是在当前对象中。
     private int attrPrivate = 1;            //属于对象，对象内能看到，对象内能改。类中不能改。只是在当前对象中。
+                                            //注意这个private可以在类内部访问，就是说不同对象在同一个类内部代码也是能访问的，参考unit5Scope最后的代码
     public static int attrPublicStatic; //属于类本身，内外和类定义都能看到，类和对象都能修改修改。全局对象和类共享一个值
     private static int attr_static = 0;     //属于类本身，对象内和类能看到，只能在类内的静态函数修改。全局对象和类共享一个值
     public final int ATTR_FINAL;            //属于对象，对象内外能看到，设置完一次就不能改。只是在当前对象中。
