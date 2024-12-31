@@ -123,7 +123,7 @@ public class Unit5 {
     public double sum(int n2,double n1){return n1 + n2;}    //和上面的参数顺序不一样，一般来说这种情况很少见
 
     public void testMethod(String name, Double weight){ //这里测试如果double传入int会怎样？
-        //Unit5 unit = new Unit5();    //如果调用本method
+        //Unit5 unit = new Unit5();    //如果想调用本method
         //unit.testMethod("fuwei",20); //注意这样写报错，Java并不能隐形转换int和double的类型，它认为20是int
         //unit.testMethod("fuwei",20.0); //改成这样写是对的。
     }
