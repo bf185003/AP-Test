@@ -66,6 +66,13 @@ public class Unit5 {
         return result;
     }
 
+    public void method4(int attrPublic){ //注意，如果函数的local名称和class的属性重名了
+        attrPublic = attrPublic; //注意，这里想把传入的参数，即local的attrPublic传给instance的attrPublic，但是这样写是不对的
+
+        System.out.println("local attrPublic is :" + attrPublic); //如果重名了，在函数中的attrPublic是local的，不是class和instance的
+        System.out.println("instance attrPublic is :" + this.attrPublic); //想用instance的属性，必须用this
+    }
+
     //方法返回什么的返回值,在其他计算中就当什么值用，以下都是什么返回值，能在哪些函数中用。
     //一般来说，有返回值的函数，都是当作赋值给其他变量用，很少不用返回值的情况。当然不用也可以。
      public int abc(){ return 10;}
